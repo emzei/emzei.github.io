@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "dark"  # "default", "air", "aqua", "contrast", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Rest In Peace"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Emzei"
+description              : "Tiny repository for reviewing what I did"
 url                      : "https://emzei.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
