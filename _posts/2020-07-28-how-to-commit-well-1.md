@@ -34,6 +34,7 @@ categories: git
 + 명령문 : 현재 시제의 명령문으로 시작하여 단순하게 설명하기
 + 어떤 것을 커밋했는지 간단히 쓰기
     - (예) '서브시스템이름' : 커밋 제목 → 'submodule' : Update blah blah
+
 | 좋은 예 | 나쁜 예 |
 |:---:|:---:|
 |<code>$ git log --oneline -5 --author pwebb --before "Sat Aug 30 2014"
