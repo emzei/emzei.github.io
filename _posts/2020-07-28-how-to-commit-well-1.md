@@ -1,7 +1,7 @@
 ---
 title: "Git 잘 쓰기 - Commit은 어떻게 해야할까"
 date: 2020-07-28 11:50:00 -0400
-categories: git commit
+categories: git
 ---
 
 # 커밋은 어떻게 해야하지?
@@ -23,7 +23,8 @@ categories: git commit
 
 + 과도하게 세분화된 커밋은 Squash를 통해 합칠 수 있다. 하지만 덩어리로 커밋된 건 나중에 가서 나눌 수 없다. 차라리 가능하면 작은 단위로 커밋을 하고, 나중에 합치는 게 낫다고 판단될 때 합치는 게 낫다.  
 
-
+  
+  
 # 커밋 메시지를 잘 쓰자
 
 ## (1) 커밋 메시지의 Subject는 명령문으로 시작하여 짧게 쓰기
@@ -32,4 +33,29 @@ categories: git commit
 + Subject의 첫 글자는 대문자로 한다
 + 명령문 : 현재 시제의 명령문으로 시작하여 단순하게 설명하기
 + 어떤 것을 커밋했는지 간단히 쓰기
-- (예) '서브시스템이름' : 커밋 제목 → 'submodule' : Update blah blah
+    - (예) '서브시스템이름' : 커밋 제목 → 'submodule' : Update blah blah
+| 좋은 예 | 나쁜 예 |
+|:---:|:---:|
+|``` $ git log --oneline -5 --author pwebb --before "Sat Aug 30 2014"<br>5ba3db6 Fix failing CompositePropertySourceTests<br>84564a0 Rework @PropertySource early parsing logic<br>e142fd1 Add tests for ImportSelector meta-data<br><br>887815f Update docbook dependency and generate epub<br>ac8326d Polish mockito usage ```|``` $ git log --oneline -5 --author cbeams --before "Fri Mar 26 2009" <br><br>e5f4b49 Re-adding ConfigurationPostProcessorTests after its brief removal in r814. @Ignore-ing the testCglibClassesAreLoadedJustInTimeForEnhancement() method as it turns out this was one of the culprits in the recent build breakage. The classloader hacking causes subtle downstream effects, breaking unrelated tests. The test method is still useful, but should only be run on a manual basis to ensure CGLIB is not prematurely classloaded, and should not be run as part of the automated build.<br>2db0f12 fixed two build-breaking issues: + reverted ClassMetadataReadingVisitor to revision 794 + eliminated ConfigurationPostProcessorTests until further investigation determines why it causes downstream tests to fail (such as the seemingly unrelated ClassPathXmlApplicationContextTests)<br>147709f Tweaks to package-info.java files<br>22b25e0 Consolidated Util and MutableAnnotationUtils classes into existing AsmUtils<br>7f96f57 polishing ```|
+    
+## (2) Subject와 Content간의 blank line 두기
+
++ Blank line을 두게되면, --oneline 옵션으로 볼 때에 Subject만 출력된다.
++ Blank line이 없으면 메시지 전체가 출력되어 가독성이 떨어진다
+
+## (3) 내용
+
++ 문장을 끝낼 때 마침표 찍지 않기
++ 한 줄에는 최대 72자 (또는 76자 내외로 하라는 가이드도 많다)
++ 내용에는 꼭 '무엇(what)', '왜(why)' 그리고 '어떻게(how)'를 설명하자.
+    - 무엇(what)을 변경했는지
+    - 왜(why) 변경했는지
+    - 어떻게(how) 변경했는지
++ 자동화된 시험 외에 수행한 매뉴얼 테스트가 있다면 설명해주자
++ 성능 향상과 관련된 경우라면, 간략한 테스트 결과를 넣어주는 것도 좋다
+
+  
+  
+## References
++ https://tech.10000lab.xyz/git/git-commit-discipline.html
++ https://chris.beams.io/posts/git-commit/
